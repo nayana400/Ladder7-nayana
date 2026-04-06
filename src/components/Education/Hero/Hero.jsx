@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import BackgroundParticles from './BackgroundParticles';
 
 const SLIDES = [
   {
@@ -49,9 +48,6 @@ function Hero() {
 
   return (
     <section className="h-[90vh] bg-[oklch(0.97_0_0)] text-gray-900 flex flex-col justify-center px-6 md:px-16 relative overflow-hidden pt-20">
-      {/* Three.js Background Layer */}
-      <BackgroundParticles />
-
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Slider Container */}
         <div className="relative overflow-hidden w-full h-[60vh] md:h-[50vh]">

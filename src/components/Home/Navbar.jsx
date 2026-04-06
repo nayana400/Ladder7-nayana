@@ -78,7 +78,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-[oklch(0.97_0_0)] text-gray-900 w-full z-50 fixed top-0 left-0 border-b border-gray-200 shadow-sm">
+    <nav className="bg-white/85 backdrop-blur-md text-gray-900 w-full z-50 fixed top-0 left-0 border-b border-gray-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo Section */}
         <Link to="/" className="flex items-center flex-shrink-0" onClick={() => window.scrollTo(0, 0)}>
@@ -203,10 +203,10 @@ function Navbar() {
 
           {/* Toggle Button */}
           <div className="hidden lg:flex bg-[#f1f5f9] p-1 rounded-full relative text-[11px] font-black tracking-widest w-[220px] shrink-0 border border-slate-200/50">
-            <div 
+            <div
               className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-in-out ${activeToggle === 'EDUCATION' ? 'translate-x-full' : 'translate-x-0'}`}
             />
-            <button 
+            <button
               onClick={() => {
                 setActiveToggle('IT');
                 navigate('/');
@@ -215,7 +215,7 @@ function Navbar() {
             >
               IT
             </button>
-            <button 
+            <button
               onClick={() => {
                 setActiveToggle('EDUCATION');
                 navigate('/education');
@@ -319,10 +319,10 @@ function Navbar() {
 
           {/* Mobile Toggle Button */}
           <div className="flex bg-[#f1f5f9] p-1 rounded-full relative text-[12px] font-black tracking-widest w-full max-w-[280px] mx-auto mt-8 mb-4 border border-slate-200/50">
-            <div 
+            <div
               className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-sm transition-transform duration-300 ease-in-out ${activeToggle === 'EDUCATION' ? 'translate-x-full' : 'translate-x-0'}`}
             />
-            <button 
+            <button
               onClick={() => {
                 setActiveToggle('IT');
                 setOpen(false);
@@ -332,7 +332,7 @@ function Navbar() {
             >
               IT
             </button>
-            <button 
+            <button
               onClick={() => {
                 setActiveToggle('EDUCATION');
                 setOpen(false);

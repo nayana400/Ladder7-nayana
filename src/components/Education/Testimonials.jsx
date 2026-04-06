@@ -92,7 +92,7 @@ const Testimonials = () => {
                                         <h4 className="text-[#002855] text-base font-bold tracking-tight">
                                             {testimonials[index].author}
                                         </h4>
-                                        <p className="text-gray-400 text-[11px] font-normal leading-tight">
+                                        <p className="text-gray-600 text-[11px] font-normal leading-tight">
                                             {testimonials[index].role}
                                         </p>
                                     </div>
