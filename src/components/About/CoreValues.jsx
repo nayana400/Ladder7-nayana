@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Technologies = () => {
+const CoreValues = () => {
     const techPillars = [
         {
             title: "Uncompromising Engineering Excellence",
@@ -82,11 +82,11 @@ const Card = ({ tech, index }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="bg-white w-full p-10 rounded-[28px] shadow-sm hover:bg-[#ff3152] transition-all duration-500 border border-gray-100 flex flex-col items-start text-left group cursor-pointer relative"
+        className="bg-white w-full p-10 rounded-[28px] shadow-sm hover:bg-[oklch(0.56_0.25_299.37)] transition-all duration-500 border border-gray-100 flex flex-col items-start text-left group cursor-pointer relative"
     >
         {/* Top-Left Signature Red Dot Decoration + Moving Icon (Internal Only) */}
         <div className="relative mb-8 transition-transform duration-500 group-hover:-translate-x-4">
-            <div className={`absolute ${tech.dotPos} w-8 h-8 bg-[#E21F26] rounded-full opacity-90 group-hover:bg-white/20 group-hover:scale-125 transition-all duration-500`}></div>
+            <div className={`absolute ${tech.dotPos} w-8 h-8 bg-[oklch(0.56_0.25_299.37)] rounded-full opacity-90 group-hover:bg-white/20 group-hover:scale-125 transition-all duration-500`}></div>
             <div className="relative z-10 text-[#002855] group-hover:text-white transition-colors duration-500">
                 {tech.icon}
             </div>
@@ -103,4 +103,4 @@ const Card = ({ tech, index }) => (
     </motion.div>
 );
 
-export default Technologies;
+export default CoreValues;

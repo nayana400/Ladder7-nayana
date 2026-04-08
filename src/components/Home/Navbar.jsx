@@ -196,13 +196,13 @@ function Navbar() {
               )}
             </div>
 
-            <Link to="/" className="hover:text-blue-600 transition py-2 whitespace-nowrap" onClick={(e) => handleLinkClick(e, "/")}>What we think</Link>
+            <Link to="/blog" className="hover:text-blue-600 transition py-2 whitespace-nowrap" onClick={(e) => handleLinkClick(e, "/blog")}>What we think</Link>
             <Link to="/careers" onClick={handleCareersClick} className="hover:text-blue-600 transition py-2 whitespace-nowrap">Careers</Link>
             <Link to="/contact" className="hover:text-blue-600 transition py-2 whitespace-nowrap" onClick={(e) => handleLinkClick(e, "/contact")}>Contact Us</Link>
           </div>
 
           {/* Toggle Button */}
-          <div className="hidden lg:flex bg-[#f1f5f9] p-1 rounded-full relative text-[11px] font-black tracking-widest w-[220px] shrink-0 border border-slate-200/50">
+          <div className="hidden lg:flex bg-[#f1f5f9] p-0.5 rounded-full relative text-[10px] font-black tracking-widest w-[180px] shrink-0 border border-slate-200/50">
             <div
               className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-in-out ${activeToggle === 'EDUCATION' ? 'translate-x-full' : 'translate-x-0'}`}
             />
@@ -211,7 +211,7 @@ function Navbar() {
                 setActiveToggle('IT');
                 navigate('/');
               }}
-              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-700'}`}
             >
               IT
             </button>
@@ -220,7 +220,7 @@ function Navbar() {
                 setActiveToggle('EDUCATION');
                 navigate('/education');
               }}
-              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600' : 'text-slate-500 hover:text-slate-700'}`}
             >
               EDUCATION
             </button>
@@ -313,12 +313,12 @@ function Navbar() {
             )}
           </div>
 
-          <Link to="/" className="block hover:text-blue-600 py-3 font-medium border-b border-gray-100" onClick={() => setOpen(false)}>What we think</Link>
+          <Link to="/blog" className="block hover:text-blue-600 py-3 font-medium border-b border-gray-100" onClick={(e) => handleLinkClick(e, "/blog")}>What we think</Link>
           <Link to="/careers" className="block hover:text-blue-600 py-3 font-medium" onClick={(e) => { handleCareersClick(e); setOpen(false); }}>Careers</Link>
           <Link to="/contact" className="block hover:text-blue-600 py-3 font-medium text-gray-800" onClick={(e) => handleLinkClick(e, "/contact")}>Contact Us</Link>
 
           {/* Mobile Toggle Button */}
-          <div className="flex bg-[#f1f5f9] p-1 rounded-full relative text-[12px] font-black tracking-widest w-full max-w-[280px] mx-auto mt-8 mb-4 border border-slate-200/50">
+          <div className="flex bg-[#f1f5f9] p-0.5 rounded-full relative text-[11px] font-black tracking-widest w-full max-w-[240px] mx-auto mt-8 mb-4 border border-slate-200/50">
             <div
               className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-sm transition-transform duration-300 ease-in-out ${activeToggle === 'EDUCATION' ? 'translate-x-full' : 'translate-x-0'}`}
             />
@@ -328,7 +328,7 @@ function Navbar() {
                 setOpen(false);
                 navigate('/');
               }}
-              className={`relative z-10 flex-1 py-2 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500'}`}
+              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500'}`}
             >
               IT
             </button>
@@ -338,7 +338,7 @@ function Navbar() {
                 setOpen(false);
                 navigate('/education');
               }}
-              className={`relative z-10 flex-1 py-2 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600' : 'text-slate-500'}`}
+              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600' : 'text-slate-500'}`}
             >
               EDUCATION
             </button>

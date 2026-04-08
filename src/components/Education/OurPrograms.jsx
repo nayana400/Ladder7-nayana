@@ -87,13 +87,13 @@ function OurPrograms() {
                                     className="flex items-start md:items-center gap-4 py-4 md:py-5 border-b border-gray-200 group cursor-pointer"
                                     onClick={() => window.location.href = program.links[0]?.url || '#'}
                                 >
-                                    <div className="shrink-0 text-blue-500 group-hover:text-blue-600 transition-colors p-2.5 bg-gray-50 group-hover:bg-blue-50 rounded-2xl border border-gray-200 group-hover:border-blue-200">
+                                    <div className="shrink-0 text-[oklch(42.4%_.199_265.638)] group-hover:text-[oklch(42.4%_.199_265.638)] transition-colors p-2.5 bg-gray-50 group-hover:bg-[oklch(42.4%_.199_265.638)]/10 rounded-2xl border border-gray-200 group-hover:border-[oklch(42.4%_.199_265.638)]/30">
                                         <div className="transform transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)]">
                                             {getIcon(idx)}
                                         </div>
                                     </div>
                                     <div className="flex-1 flex flex-col gap-3">
-                                        <h4 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                        <h4 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[oklch(42.4%_.199_265.638)] transition-colors">
                                             {program.title}
                                         </h4>
                                         <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md pl-4">
@@ -104,7 +104,7 @@ function OurPrograms() {
                                                 <a
                                                     key={lIdx}
                                                     href={link.url}
-                                                    className="font-semibold text-blue-500 hover:text-blue-700 transition-colors flex items-center gap-1 group/link text-sm md:text-base whitespace-nowrap"
+                                                    className="font-semibold text-[oklch(42.4%_.199_265.638)] hover:text-[oklch(42.4%_.199_265.638)] transition-colors flex items-center gap-1 group/link text-sm md:text-base whitespace-nowrap"
                                                     onClick={(e) => e.stopPropagation()}
                                                 >
                                                     {link.text}
@@ -127,10 +127,10 @@ function OurPrograms() {
                         className="relative hidden lg:flex items-center justify-center h-full min-h-[450px] w-full"
                     >
                         {/* Background Accent Shape (mimicking the reference shape, but in Ladder7 blue) */}
-                        <div className="absolute top-[5%] bottom-[5%] right-[5%] left-[20%] bg-[#003399] rounded-3xl opacity-90 rounded-bl-[100px] rounded-tr-[100px] transform -rotate-2" />
+                        <div className="absolute top-[5%] bottom-[5%] right-[5%] left-[20%] bg-[oklch(42.4%_.199_265.638)] rounded-3xl opacity-90 rounded-bl-[100px] rounded-tr-[100px] transform -rotate-2" />
 
                         {/* Outline Border Accent */}
-                        <div className="absolute top-[2%] bottom-[8%] right-[2%] left-[17%] border-2 border-dashed border-blue-400/50 rounded-3xl" />
+                        <div className="absolute top-[2%] bottom-[8%] right-[2%] left-[17%] border-2 border-dashed border-[oklch(42.4%_.199_265.638)]/50 rounded-3xl" />
 
                         {/* Staggered Collage Images */}
                         <div className="relative z-10 w-full h-[400px] flex gap-4 pl-4 pr-16 lg:pr-12">
@@ -154,7 +154,7 @@ function OurPrograms() {
                         {/* Chevron Graphic Accent (mimicking reference arrows) */}
                         <div className="absolute top-1/2 left-[10%] -translate-y-1/2 -translate-x-1/2 z-20 flex flex-col gap-1 opacity-80">
                             {[...Array(3)].map((_, i) => (
-                                <svg key={i} className={`w-12 h-12 text-blue-400 drop-shadow-lg transform rotate-90 ${i === 0 ? 'opacity-100 translate-x-4' : i === 1 ? 'opacity-70 translate-x-2' : 'opacity-40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                                <svg key={i} className={`w-12 h-12 text-[oklch(42.4%_.199_265.638)] drop-shadow-lg transform rotate-90 ${i === 0 ? 'opacity-100 translate-x-4' : i === 1 ? 'opacity-70 translate-x-2' : 'opacity-40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
                                 </svg>
                             ))}

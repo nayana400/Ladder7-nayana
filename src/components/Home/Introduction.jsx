@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import visionImg from '../../assets/Images/about.webp';
 import missionImg from '../../assets/Images/services/service.webp';
 
-const WhoWeAre = () => {
+const Introduction = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,7 +35,7 @@ const WhoWeAre = () => {
           className="text-center mb-20"
         >
           <motion.h2 variants={itemVariants} className="text-2xl md:text-3xl font-bold text-black mb-8 leading-tight">
-            Every Business. Every Market. One Goal  <span className="text-[#3fc0ed]">— Revenue.</span>
+            Every Business. Every Market. One Goal  <span className="text-[black]">— Revenue.</span>
           </motion.h2>
           <motion.p variants={itemVariants} className="text-[#666] text-center text-base md:text-lg font-normal max-w-[1100px] mx-auto leading-[1.8]">
             We build intelligent digital systems for organisations ready to turn their online presence into their most powerful sales asset. At Ladder7 Nextstep Solutions, we believe every business — regardless of size — deserves a digital presence that actively generates revenue. We act as the strategic delivery partner for growth-focused organisations, translating digital ambition into measurable business outcomes.
@@ -58,10 +58,7 @@ const WhoWeAre = () => {
                 <div className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] rounded-full overflow-hidden absolute left-0 top-0 border-[6px] border-white shadow-xl z-0">
                   <img src={visionImg} alt="Our Vision" className="w-full h-full object-cover" />
                 </div>
-                {/* Overlapping Blue Circle */}
-                <div className="w-[110px] h-[110px] md:w-[130px] md:h-[130px] rounded-full bg-[#3fc0ed]/90 absolute right-0 bottom-0 flex items-center justify-center p-3 text-center z-10 shadow-lg group-hover:scale-105 transition-transform duration-500">
-                  <span className="text-white text-sm md:text-lg font-bold leading-tight">Our <br /> Vision</span>
-                </div>
+
               </div>
             </div>
             <div className="flex-1 text-center xl:text-left pt-2">
@@ -86,10 +83,7 @@ const WhoWeAre = () => {
                 <div className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] rounded-full overflow-hidden absolute left-0 top-0 border-[6px] border-white shadow-xl z-0">
                   <img src={missionImg} alt="Our Mission" className="w-full h-full object-cover" />
                 </div>
-                {/* Overlapping Blue Circle */}
-                <div className="w-[110px] h-[110px] md:w-[130px] md:h-[130px] rounded-full bg-[#3fc0ed]/90 absolute right-0 bottom-0 flex items-center justify-center p-3 text-center z-10 shadow-lg group-hover:scale-105 transition-transform duration-500">
-                  <span className="text-white text-sm md:text-lg font-bold leading-tight">Our <br /> Mission</span>
-                </div>
+
               </div>
             </div>
             <div className="flex-1 text-center xl:text-left pt-2">
@@ -105,4 +99,4 @@ const WhoWeAre = () => {
   );
 };
 
-export default WhoWeAre;
+export default Introduction;

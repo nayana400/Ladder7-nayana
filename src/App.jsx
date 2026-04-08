@@ -6,6 +6,7 @@ import CareersPage from "./components/Careers/CareersPage";
 import ServicesPage from "./components/Services/ServicesPage";
 import ContactPage from "./components/Contact/ContactPage";
 import AboutPage from "./components/About/AboutPage";
+import Blog from "./components/Blog/Blog";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </div>
   );

@@ -22,13 +22,13 @@ const Advisor = () => {
                     <div className="flex flex-nowrap gap-6 mb-4 overflow-x-auto no-scrollbar">
                         {features.map((feature, idx) => (
                             <div key={idx} className="flex items-center gap-2 whitespace-nowrap">
-                                <span className="text-blue-600 text-lg font-bold">✓</span>
+                                <span className="text-[oklch(42.4%_.199_265.638)] text-lg font-bold">✓</span>
                                 <span className="text-base font-bold text-gray-800">{feature}</span>
                             </div>
                         ))}
                     </div>
 
-                    <a href="" className="inline-block mt-2 bg-[#003399] text-white py-4 px-10 rounded text-base font-bold shadow-xl hover:bg-blue-800 transition-colors">
+                    <a href="" className="inline-block mt-2 bg-[oklch(42.4%_.199_265.638)] text-white py-4 px-10 rounded text-base font-bold shadow-xl hover:bg-[oklch(42.4%_.199_265.638)]/90 transition-colors">
                         Request a call
                     </a>
                 </div>

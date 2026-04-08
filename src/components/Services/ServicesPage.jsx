@@ -10,7 +10,7 @@ const serviceSections = [
     {
         title: "Digital Experience & Web Engineering",
         subtitle: "Crafting seamless interactions and robust foundations for the modern web.",
-        accentColor: "blue-600",
+        accentColor: "oklch(0.61_0.2_295.3)",
         items: [
             {
                 title: "Adobe Experience Manager (AEM)",
@@ -62,7 +62,7 @@ const serviceSections = [
     {
         title: "AI & Intelligent Automation",
         subtitle: "Integrating next-generation intelligence into your business workflow.",
-        accentColor: "purple-600",
+        accentColor: "oklch(0.5_0.15_260.18)",
         items: [
             {
                 title: "AI Assistants & Chatbots",
@@ -115,7 +115,7 @@ const serviceSections = [
     {
         title: "Strategy & Technology Consulting",
         subtitle: "The roadmap to digital maturity and sustainable innovation.",
-        accentColor: "green-600",
+        accentColor: "oklch(59.6%_0.145_163.225)",
         theme: "green",
         items: [
             {
@@ -193,7 +193,7 @@ const ServicesPage = () => {
                     initial={{ x: '-100%' }}
                     animate={{ x: 0 }}
                     transition={{ duration: 0.8, ease: "circOut" }}
-                    className="absolute top-1/2 -translate-y-1/2 left-0 w-[85%] md:w-[60%] lg:w-[45%] h-auto py-16 px-10 md:px-16 bg-[#ff3b5c] rounded-r-[3rem] shadow-2xl z-10 overflow-hidden flex flex-col justify-center"
+                    className="absolute top-1/2 -translate-y-1/2 left-0 w-[85%] md:w-[60%] lg:w-[45%] h-auto py-16 px-10 md:px-16 bg-[oklch(0.61_0.2_295.3)] rounded-r-[3rem] shadow-2xl z-10 overflow-hidden flex flex-col justify-center"
                 >
                     {/* Wavy Background Graphic inside red box */}
                     <svg className="absolute bottom-0 right-0 w-full h-auto opacity-20 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -228,7 +228,8 @@ const ServicesPage = () => {
                             initial={{ opacity: 0, x: -25 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="pl-6 border-l-4 border-blue-900 mb-12"
+                            className="pl-6 border-l-4 mb-12"
+                            style={{ borderLeftColor: section.accentColor }}
                         >
                             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">
                                 {section.title}

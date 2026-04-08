@@ -16,9 +16,9 @@ const Education = () => {
             <Hero />
             <Products />
             <OurJourney />
+            <Partners />
             <Testimonials />
             <OurPrograms />
-            <Partners />
             <Advisor />
             <Footer />
         </div>

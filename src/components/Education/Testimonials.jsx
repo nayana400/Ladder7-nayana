@@ -38,10 +38,10 @@ const Testimonials = () => {
 
             {/* Triangle Blue Background Shape pointing to Top-Right */}
             <div
-                className="absolute top-0 right-0 w-[90%] h-full bg-[#3fc0ed] z-0 hidden lg:block"
+                className="absolute top-0 right-0 w-[90%] h-full bg-[oklch(0.61_0.19_265.99)] z-0 hidden lg:block"
                 style={{ clipPath: 'polygon(100% 0, 100% 100%, 0% 100%)' }}
             ></div>
-            <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#3fc0ed] lg:hidden z-0"></div>
+            <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[oklch(0.61_0.19_265.99)] lg:hidden z-0"></div>
 
             <div className="max-w-[1100px] mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-4">
@@ -54,14 +54,13 @@ const Testimonials = () => {
                             viewport={{ once: true }}
                         >
                             <h2 className="text-3xl lg:text-4xl font-black text-[#002855] leading-[1.1] mb-1 tracking-tight">
-                                What Our Amazing <br />
-                                Clients
+                                What Our Participants
                             </h2>
-                            <h2 className="text-3xl lg:text-4xl font-black text-[#3fc0ed] leading-[1.1] mb-4">
+                            <h2 className="text-3xl lg:text-4xl font-black text-[oklch(0.61_0.19_265.99)] leading-[1.1] mb-4">
                                 Say About Us
                             </h2>
                             <p className="text-gray-400 text-sm font-normal leading-relaxed max-w-[280px]">
-                                Leading start-ups, SMEs and large-scale organizations have trusted us.
+                                Real stories from students and professionals who have launched their tech careers through our programs.
                             </p>
                         </motion.div>
                     </div>

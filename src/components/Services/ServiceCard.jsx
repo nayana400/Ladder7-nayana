@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 const ServiceCard = ({ title, description, icon, index, theme = 'orange' }) => {
   const themeColors = {
     orange: {
-      cornerBg: 'from-[#ff6b3d] to-[#ff4d4d]',
-      barBg: 'from-[#ff4d4d] to-[#ff6b3d]',
-      textColor: 'text-[#ff4d4d]',
-      shadowColor: 'shadow-red-100'
+      cornerBg: 'from-[oklch(0.61_0.2_295.3)] to-[oklch(0.61_0.2_295.3)]',
+      barBg: 'from-[oklch(0.61_0.2_295.3)] to-[oklch(0.61_0.2_295.3)]',
+      textColor: 'text-[oklch(0.61_0.2_295.3)]',
+      shadowColor: 'shadow-[oklch(0.61_0.2_295.3)]/20'
     },
     green: {
-      cornerBg: 'from-[#00a884] to-[#008f6f]',
-      barBg: 'from-[#008f6f] to-[#00a884]',
-      textColor: 'text-[#008f6f]',
-      shadowColor: 'shadow-green-100'
+      cornerBg: 'from-[oklch(59.6%_0.145_163.225)] to-[oklch(59.6%_0.145_163.225)]',
+      barBg: 'from-[oklch(59.6%_0.145_163.225)] to-[oklch(59.6%_0.145_163.225)]',
+      textColor: 'text-[oklch(59.6%_0.145_163.225)]',
+      shadowColor: 'shadow-[oklch(59.6%_0.145_163.225)]/20'
     },
     blue: {
       cornerBg: 'from-blue-600 to-blue-700',

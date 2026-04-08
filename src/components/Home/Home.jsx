@@ -2,10 +2,11 @@ import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './Navbar';
 import Hero from './Hero';
-import WhoWeAre from './WhoWeAre';
+import Introduction from './Introduction';
 import Strategy from './Strategy';
 import Innovators from './Innovators';
 import TechStack from './TechStack';
+import Revenue from './Revenue';
 import FAQ from './FAQ';
 
 import Footer from './Footer';
@@ -30,10 +31,11 @@ const Home = () => {
             <Navbar />
             <main>
                 <Hero />
-                <WhoWeAre />
+                <Introduction />
                 <Strategy />
                 <Innovators />
                 <TechStack />
+                <Revenue />
                 <FAQ />
 
 
