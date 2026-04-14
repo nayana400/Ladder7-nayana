@@ -1,4 +1,4 @@
-import Navbar from "../Home/Navbar";
+import Navbar from "../Common/Navbar";
 import Hero from "./Hero/Hero";
 import Products from "./Products/Products";
 import OurJourney from "./OurJourney";
@@ -7,7 +7,7 @@ import Advisor from "./Advisor";
 import Partners from "./Partners";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
-import Footer from "../Home/Footer";
+import Footer from "../Common/Footer";
 
 const Education = () => {
     return (

@@ -81,10 +81,6 @@ export default function ProductDetail() {
     const navigate = useNavigate();
     const product = PRODUCTS.find((p) => p.id === id);
 
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, [id]);
-
     if (!product) {
         return (
             <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center gap-6">

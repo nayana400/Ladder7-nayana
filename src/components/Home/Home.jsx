@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import Navbar from './Navbar';
+import Navbar from '../Common/Navbar';
 import Hero from './Hero';
 import Introduction from './Introduction';
 import Strategy from './Strategy';
@@ -9,7 +9,7 @@ import TechStack from './TechStack';
 import Revenue from './Revenue';
 import FAQ from './FAQ';
 
-import Footer from './Footer';
+import Footer from '../Common/Footer';
 
 const Home = () => {
     const { scrollYProgress } = useScroll();

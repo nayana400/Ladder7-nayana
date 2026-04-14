@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
-import Navbar from '../Home/Navbar';
+import { useLocation, Link } from 'react-router-dom';
+import Navbar from '../Common/Navbar';
 import ServiceCard from './ServiceCard';
-import Footer from '../Home/Footer';
+import ServiceConnect from './ServiceConnect';
+import Footer from '../Common/Footer';
 import heroBg from '../../assets/Images/services/service.webp';
 
 const serviceSections = [
     {
+        id: "web-app-dev",
         title: "Digital Experience & Web Engineering",
         subtitle: "Crafting seamless interactions and robust foundations for the modern web.",
         accentColor: "oklch(0.61_0.2_295.3)",
@@ -60,6 +62,7 @@ const serviceSections = [
         ]
     },
     {
+        id: "product-dev",
         title: "AI & Intelligent Automation",
         subtitle: "Integrating next-generation intelligence into your business workflow.",
         accentColor: "oklch(0.5_0.15_260.18)",
@@ -113,6 +116,7 @@ const serviceSections = [
         ]
     },
     {
+        id: "it-consultancy",
         title: "Strategy & Technology Consulting",
         subtitle: "The roadmap to digital maturity and sustainable innovation.",
         accentColor: "oklch(59.6%_0.145_163.225)",
@@ -159,22 +163,6 @@ const serviceSections = [
 ];
 
 const ServicesPage = () => {
-    const location = useLocation();
-
-    useEffect(() => {
-        const hash = location.hash;
-        if (hash) {
-            const element = document.querySelector(hash);
-            if (element) {
-                setTimeout(() => {
-                    element.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 100);
-            }
-        } else {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    }, [location]);
-
     return (
         <div className="bg-slate-50 min-h-screen font-sans relative">
             <Navbar />
@@ -202,7 +190,7 @@ const ServicesPage = () => {
                         <path d="M0,70 C30,90 70,50 100,70 L100,100 L0,100 Z" fill="none" stroke="white" strokeWidth="2" />
                     </svg>
 
-                    <h1 className="relative font-bold text-4xl md:text-5xl lg:text-5xl text-white leading-tight md:leading-[1.15] tracking-tight z-10">
+                    <h1 className="relative font-bold text-3xl md:text-4xl lg:text-4xl text-white leading-tight md:leading-[1.15] tracking-tight z-10">
                         Empowering Your <br className="hidden md:block" />
                         Business with <br className="hidden md:block" />
                         Cutting-Edge <br className="hidden md:block" />
@@ -216,13 +204,29 @@ const ServicesPage = () => {
                     <div className="h-1.5 w-8 bg-white/40 rounded-full cursor-pointer hover:bg-white/60"></div>
                     <div className="h-1.5 w-8 bg-white/40 rounded-full cursor-pointer hover:bg-white/60"></div>
                     <div className="h-1.5 w-8 bg-white/40 rounded-full cursor-pointer hover:bg-white/60"></div>
-                    <div className="h-1.5 w-8 bg-white/40 rounded-full cursor-pointer hover:bg-white/60"></div>
                 </div>
             </div>
 
-            <div className="pb-32 px-6 max-w-7xl mx-auto relative z-10 w-full">
+            <div className="max-w-7xl mx-auto px-6 mb-24 mt-8 md:mt-16">
+                <div className="max-w-4xl">
+                    <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed mb-8">
+                        Driving growth through technology and strategy with our specialized digital engineering and AI-driven expertise. We build the future of enterprise experiences.
+                    </p>
+                    <Link to="/contact">
+                        <motion.button 
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-xl shadow-lg transition-colors duration-300"
+                        >
+                            Get In Touch
+                        </motion.button>
+                    </Link>
+                </div>
+            </div>
+
+            <div className="pb-16 px-6 max-w-7xl mx-auto relative z-10 w-full">
                 {serviceSections.map((section, sIndex) => (
-                    <div key={section.title} className={sIndex !== 0 ? "mt-32" : ""}>
+                    <div id={section.id} key={section.title} className={`${sIndex !== 0 ? "mt-32" : ""} scroll-mt-32`}>
                         {/* Section Header */}
                         <motion.div
                             initial={{ opacity: 0, x: -25 }}
@@ -231,7 +235,7 @@ const ServicesPage = () => {
                             className="pl-6 border-l-4 mb-12"
                             style={{ borderLeftColor: section.accentColor }}
                         >
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">
+                            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight">
                                 {section.title}
                             </h2>
                             <p className="text-gray-500 text-lg md:text-xl font-medium leading-relaxed max-w-3xl">
@@ -254,6 +258,10 @@ const ServicesPage = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div className="mb-12">
+                <ServiceConnect />
             </div>
 
             <Footer />

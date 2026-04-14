@@ -9,7 +9,7 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   // EDUCATION is centered at /education and /products, IT is at / and others
-  const isEducation = location.pathname.startsWith("/education") || location.pathname.startsWith("/products");
+  const isEducation = location.pathname.startsWith("/education") || location.pathname.startsWith("/products") || location.pathname.startsWith("/my-ladder");
   const [activeToggle, setActiveToggle] = useState(isEducation ? "EDUCATION" : "IT");
   const dropdownRef = useRef(null);
 
@@ -53,17 +53,16 @@ function Navbar() {
       { name: "Strategy & Technology Consulting", path: "/services#it-consultancy" },
     ],
     products: [
-      { name: "My Ladder", path: "/program/1" },
+      { name: "My Ladder", path: "/my-ladder" },
       { name: "Mind gym", path: "/program/2" },
       { name: "Mirror me", path: "/program/3" },
       { name: "Fill Dots", path: "/program/4" },
       { name: "Amiu", path: "#programs" }
     ],
     programs: [
-      { name: "Take off", path: "#our-programs" },
-      { name: "Experience The First job", path: "#our-programs" },
+      { name: "Experience The First job", path: "/internship" },
       { name: "Earn more", path: "#our-programs" },
-      { name: "Best pick", path: "#our-programs" }
+
     ]
   };
 
@@ -81,7 +80,7 @@ function Navbar() {
     <nav className="bg-white/85 backdrop-blur-md text-gray-900 w-full z-50 fixed top-0 left-0 border-b border-gray-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo Section */}
-        <Link to="/" className="flex items-center flex-shrink-0" onClick={() => window.scrollTo(0, 0)}>
+        <Link to="/" className="flex items-center flex-shrink-0">
           <img src={logo} alt="Ladder7 Logo" className="h-10 w-auto object-contain mr-2" />
           <span className="text-xl font-bold tracking-tight text-gray-900">Ladder7</span>
         </Link>
@@ -93,9 +92,7 @@ function Navbar() {
             <Link to="/about" className="hover:text-blue-600 transition py-2 whitespace-nowrap" onClick={(e) => handleLinkClick(e, "/about")}>Who we are</Link>
             <div
               ref={dropdownRef}
-              className="relative group/menu"
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
+              className="relative flex items-center group/menu"
             >
               <Link
                 to="/services"
@@ -103,13 +100,22 @@ function Navbar() {
                   setDropdownOpen(false);
                   setOpen(false);
                 }}
-                className="flex items-center hover:text-blue-600 transition focus:outline-none py-2 whitespace-nowrap"
+                className="hover:text-blue-600 transition focus:outline-none py-2 whitespace-nowrap"
               >
                 What we do
-                <svg className={`ml-1 w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              </Link>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setDropdownOpen(!dropdownOpen);
+                }}
+                className="p-1.5 focus:outline-none hover:text-blue-600 transition"
+              >
+                <svg className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
-              </Link>
+              </button>
 
               {/* Mega Menu Dropdown */}
               {dropdownOpen && (
@@ -128,7 +134,7 @@ function Navbar() {
                           className="text-gray-900 font-bold text-lg mb-8 flex items-center justify-start gap-2 cursor-pointer hover:underline underline-offset-8 transition-all group/header hover:text-blue-600"
                           onClick={(e) => handleLinkClick(e, "/services")}
                         >
-                          <span className="w-1.5 h-6 bg-blue-500 rounded-full group-hover/header:scale-110 transition-transform"></span>
+                          <span className="w-1.5 h-6 bg-[oklch(0.47_0.16_256.54)] rounded-full group-hover/header:scale-110 transition-transform"></span>
                           Our services
                         </Link>
                         <div className="flex flex-col gap-4 items-start ml-3.5">
@@ -136,7 +142,7 @@ function Navbar() {
                             <Link
                               key={item.name}
                               to={item.path}
-                              className="text-gray-600 hover:text-blue-600 font-medium text-sm transition-all hover:scale-105 hover:underline underline-offset-4 whitespace-nowrap"
+                              className="text-gray-600 hover:text-[oklch(0.47_0.16_256.54)] font-medium text-sm transition-all hover:scale-105 hover:underline underline-offset-4 whitespace-nowrap"
                               onClick={(e) => handleLinkClick(e, item.path)}
                             >
                               {item.name}
@@ -151,7 +157,7 @@ function Navbar() {
                           className="text-gray-900 font-bold text-lg mb-8 flex items-center justify-start gap-2 cursor-pointer hover:underline underline-offset-8 transition-all group/header hover:text-purple-600"
                           onClick={(e) => handleLinkClick(e, "#programs")}
                         >
-                          <span className="w-1.5 h-6 bg-purple-500 rounded-full group-hover/header:scale-110 transition-transform"></span>
+                          <span className="w-1.5 h-6 bg-[#6226a9] rounded-full group-hover/header:scale-110 transition-transform"></span>
                           Products
                         </h4>
                         <div className="flex flex-col gap-4 items-start ml-3.5">
@@ -159,7 +165,7 @@ function Navbar() {
                             <Link
                               key={item.name}
                               to={item.path}
-                              className="text-gray-600 hover:text-purple-600 font-medium text-sm transition-all hover:scale-105"
+                              className="text-gray-600 hover:text-[#6226a9] font-medium text-sm transition-all hover:scale-105"
                               onClick={(e) => handleLinkClick(e, item.path)}
                             >
                               {item.name}
@@ -174,7 +180,7 @@ function Navbar() {
                           className="text-gray-900 font-bold text-lg mb-8 flex items-center justify-start gap-2 cursor-pointer hover:underline underline-offset-8 transition-all group/header hover:text-green-600"
                           onClick={(e) => handleLinkClick(e, "#our-programs")}
                         >
-                          <span className="w-1.5 h-6 bg-green-500 rounded-full group-hover/header:scale-110 transition-transform"></span>
+                          <span className="w-1.5 h-6 bg-[oklch(0.6_0.13_160.92)] rounded-full group-hover/header:scale-110 transition-transform"></span>
                           Our Programs
                         </h4>
                         <div className="flex flex-col gap-4 items-start ml-3.5">
@@ -182,7 +188,7 @@ function Navbar() {
                             <Link
                               key={item.name}
                               to={item.path}
-                              className="text-gray-600 hover:text-green-600 font-medium text-sm transition-all hover:scale-105"
+                              className="text-gray-600 hover:text-[oklch(0.6_0.13_160.92)] font-medium text-sm transition-all hover:scale-105"
                               onClick={(e) => handleLinkClick(e, item.path)}
                             >
                               {item.name}

@@ -145,7 +145,7 @@ function OurJourney() {
     };
 
     return (
-        <section className="bg-white text-black py-20 px-6 overflow-hidden min-h-[700px]">
+        <section className="bg-white text-black pt-8 pb-20 px-6 overflow-hidden min-h-[700px]">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 

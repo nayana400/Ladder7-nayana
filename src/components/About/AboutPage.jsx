@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Navbar from '../Home/Navbar';
-import Footer from '../Home/Footer';
+import Navbar from '../Common/Navbar';
+import Footer from '../Common/Footer';
 import aboutImage from '../../assets/Images/about.webp';
 
 import IndustryExperts from './IndustryExperts';
+import SolutionSegments from './SolutionSegments';
 import CoreValues from './CoreValues';
 import ConnectWith from './ConnectWith';
 
 const AboutPage = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
         <div className="bg-[#f8fafc] min-h-screen font-sans relative">
             <Navbar />
@@ -123,6 +120,7 @@ const AboutPage = () => {
 
                 {/* IndustryExperts Component (Proof of Leadership) */}
                 <IndustryExperts />
+                <SolutionSegments />
                 <CoreValues />
                 <ConnectWith />
 

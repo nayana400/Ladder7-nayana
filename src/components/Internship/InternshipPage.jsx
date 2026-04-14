@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import Navbar from '../Common/Navbar';
-import Contact from '../Education/Contact';
 import Footer from '../Common/Footer';
+import Internship from './Internship';
 
-const ContactPage = () => {
+const InternshipPage = () => {
     return (
-        <div className="bg-white min-h-screen pt-20">
+        <div className="bg-[oklch(0.93_0.01_0)] min-h-screen">
             <Navbar />
-            <Contact />
+            <Internship />
             <Footer />
         </div>
     );
 };
 
-export default ContactPage;
+export default InternshipPage;

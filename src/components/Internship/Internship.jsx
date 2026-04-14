@@ -10,53 +10,65 @@ const CAREER_IMAGES = [career1, career2, career3];
 
 const OPEN_POSITIONS = [
     {
-        title: "HR Intern",
+        title: "Jr. AI/ML Developer (Intern)",
         location: "Trivandrum",
         duration: "3 months",
-        mode: "Work from Office",
-        qualification: "MBA in HR / Marketing",
-        description: "We are looking for an HR Intern to assist in our recruitment and talent management processes. Assist in screening resumes, scheduling interviews, and maintaining employee records.",
-        category: "HR",
-        image: career1,
-        type: "Paid"
-    },
-    {
-        title: "WordPress Developer",
-        location: "Trivandrum",
-        duration: "3 months",
-        mode: "Work from Office",
+        mode: "Hybrid",
         qualification: "B.Tech / MCA / BCA",
-        description: "Join our development team to build and maintain WordPress websites. Experience with PHP, HTML5, CSS3, and JavaScript is preferred.",
+        description: "Join our engineering team to bridge the gap between raw data and intelligent insights. Assist in building, testing, and deploying models that solve real-world problems.",
+        responsibilities: "Data cleaning, model training (Regression, NLP), Python coding, backend integration.",
+        requirements: "Python (NumPy, Pandas), Deep Learning basics, SQL/Git.",
+        quote: "Ready to build the future? If you are passionate about data, algorithms, and solving complex problems,",
         category: "Engineering",
         image: career2,
         type: "Stipend"
     },
     {
-        title: "Flutter Developer",
+        title: "Jr. MERN Developer (Intern)",
         location: "Trivandrum",
         duration: "3 months",
-        mode: "Work from Office",
+        mode: "Hybrid",
         qualification: "B.Tech / MCA / BCA",
-        description: "Looking for a passionate Flutter developer to build cross-platform mobile applications. knowledge of Dart and state management is essential.",
+        description: "Budding Full-Stack Developer to scale web platforms. Perfect for JS lovers who want to see code in production and impact real users.",
+        responsibilities: "React components, Node.js/Express APIs, MongoDB management, UI/UX fixes.",
+        requirements: "JS (ES6+), HTML5/CSS3, State Management, GitHub portfolio.",
+        quote: "Build. Ship. Repeat. Join a team where your code goes live and impacts real users.",
         category: "Engineering",
         image: career3,
+        type: "Stipend"
+    },
+    {
+        title: "Jr. HR (Intern)",
+        location: "Trivandrum",
+        duration: "3 months",
+        mode: "Hybrid",
+        qualification: "MBA in HR / Marketing",
+        description: "First point of contact for candidates, helping maintain a high-energy company culture and sourcing the best talent.",
+        responsibilities: "Sourcing/screening, interview coordination, onboarding assistance, team events.",
+        requirements: "English communication, high EQ, organizational skills, HR/Business degree.",
+        quote: "Love working with people? Help us build a world-class team and a culture people love.",
+        category: "HR",
+        image: career1,
         type: "Paid"
     },
     {
-        title: "AEM Author Intern",
-        location: "Hybrid",
-        duration: "1 month",
+        title: "Jr. Digital Marketing Executive (Intern)",
+        location: "Trivandrum",
+        duration: "3 months",
         mode: "Hybrid",
-        qualification: "Computer Science Degree",
-        description: "Learn and work with Adobe Experience Manager. You will be responsible for content authoring and managing digital assets within the AEM platform.",
-        category: "Engineering",
+        qualification: "Degree in Marketing / Business",
+        description: "Creative, data-curious intern to support digital marketing across channels and help tell our brand's story.",
+        responsibilities: "Social graphics (Canva), copywriting, SEO research, PPC/Email support.",
+        requirements: "Creative eye, SEO/SEM basics, storytelling skills, digital tool eagerness.",
+        quote: "Grow our brand (and your skills). If you’re a creative storyteller, come help us make an impact.",
+        category: "Marketing",
         image: career1,
-        type: "Unpaid"
+        type: "Stipend"
     }
 ];
 
 
-const Careers = () => {
+const Internship = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [selectedJob, setSelectedJob] = useState(OPEN_POSITIONS[0]);
 
@@ -71,7 +83,7 @@ const Careers = () => {
     return (
         <div className="bg-white min-h-screen">
             {/* Premium Home-Inspired Hero Section */}
-            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-visible">
+            <section className="relative pt-20 pb-10 lg:pt-32 lg:pb-16 overflow-visible">
                 {/* Background Blurs */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
                     <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/50 blur-3xl animate-pulse"></div>
@@ -89,39 +101,36 @@ const Careers = () => {
                         }}
                         className="flex flex-col items-start z-10 w-full"
                     >
-                        <motion.div 
-                            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} 
+                        <motion.div
+                            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                             className="inline-block px-5 py-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full text-blue-700 font-bold text-sm mb-8 border border-blue-100/50 shadow-sm transition-all hover:shadow-md hover:scale-105"
                         >
-                            ✨ We're Hiring
+                            NOW ACCEPTING APPLICATIONS
                         </motion.div>
 
-                        <motion.h1 
+                        <motion.h1
                             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                             className="text-4xl lg:text-6xl font-black text-gray-900 tracking-tight leading-[1.1] mb-8"
                         >
-                            Join Our <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Global Team</span> of Innovators
+                            Launch Your <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Dream Career</span> with Confidence
                         </motion.h1>
 
-                        <motion.p 
+                        <motion.p
                             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                             className="text-base lg:text-lg text-gray-600 mb-10 leading-relaxed max-w-lg font-medium"
                         >
-                            Build the future of digital solutions with Ladder7. We're looking for passionate engineers, designers, and visionaries.
+                            Transform your career aspirations into reality with Experience the First Job, a revolutionary program.
                         </motion.p>
 
-                        <motion.div 
+                        <motion.div
                             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                             className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
                         >
-                            <a href="#open-positions" className="px-8 py-4 bg-gray-900 text-white font-bold rounded-xl shadow-xl shadow-gray-900/20 hover:bg-gray-800 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-900/30 transition-all duration-300 w-full sm:w-auto text-center">
-                                View Openings
+                            <a href="#open-positions" className="px-8 py-4 bg-[#6226a9] text-white font-bold rounded-xl shadow-xl shadow-[#6226a9]/20 hover:bg-[#4d1d85] hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#6226a9]/30 transition-all duration-300 w-full sm:w-auto text-center">
+                                Explore Now
                             </a>
-                            <button className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl shadow-md border border-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
-                                Contact Us
-                                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </button>
+
                         </motion.div>
                     </motion.div>
 
@@ -170,8 +179,11 @@ const Careers = () => {
                 <div className="container mx-auto px-6 max-w-6xl">
                     {/* Heading */}
                     <div className="mb-12 text-center">
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Open Positions</h2>
-                        <div className="w-24 h-1.5 bg-gradient-to-r from-[#003399] to-indigo-600 mx-auto rounded-full"></div>
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Accelerator Programs</h2>
+                        <div className="w-24 h-1.5 bg-gradient-to-r from-[#003399] to-indigo-600 mx-auto rounded-full mb-8"></div>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                            Choose your path and gain industry-ready skills through our specialized tracks. Each program is designed with high-impact learning outcomes.
+                        </p>
                     </div>
 
                     {/* Split Panel */}
@@ -230,24 +242,53 @@ const Careers = () => {
                                 {/* Details */}
                                 <div className="p-8 flex flex-col flex-1">
                                     {/* Info Grid */}
-                                    <div className="grid grid-cols-2 gap-8 mb-8">
+                                    <div className="grid grid-cols-2 gap-y-4 gap-x-6 mb-5 mt-[-10px]">
                                         {[
                                             { label: 'Location', value: selectedJob.location },
                                             { label: 'Duration', value: selectedJob.duration },
-                                            { label: 'Work Mode', value: selectedJob.mode },
+                                            { label: 'Working Mode', value: selectedJob.mode },
                                             { label: 'Qualification', value: selectedJob.qualification },
                                         ].map(({ label, value }) => (
                                             <div key={label}>
-                                                <p className="text-[#003399] text-xs font-bold uppercase tracking-widest mb-1">{label}</p>
-                                                <p className="text-gray-700 font-medium">{value}</p>
+                                                <p className="text-[#003399] text-[10px] md:text-xs font-bold uppercase tracking-wide mb-0.5">{label}</p>
+                                                <p className="text-gray-700 text-sm font-medium">{value}</p>
                                             </div>
                                         ))}
                                     </div>
 
                                     {/* Description */}
-                                    <div className="border-t border-gray-100 pt-7 mb-8">
-                                        <h4 className="text-gray-900 font-bold mb-3 border-l-4 border-blue-600 pl-4">Position Overview</h4>
-                                        <p className="text-gray-600 text-sm md:text-base leading-relaxed">{selectedJob.description}</p>
+                                    <div className="border-t border-gray-100 pt-6 mb-6">
+                                        <div className="max-h-[220px] overflow-y-auto pr-2 overflow-x-hidden" style={{ scrollbarWidth: 'thin', scrollbarColor: '#cbd5e1 transparent' }}>
+                                            <div className="space-y-5">
+                                                <div>
+                                                    <h4 className="text-gray-900 font-bold mb-2 border-l-4 border-blue-600 pl-3 text-sm uppercase tracking-wide">Description</h4>
+                                                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">{selectedJob.description}</p>
+                                                </div>
+
+                                                {selectedJob.responsibilities && (
+                                                    <div>
+                                                        <h4 className="text-gray-900 font-bold mb-2 border-l-4 border-blue-600 pl-3 text-sm uppercase tracking-wide">Responsibilities</h4>
+                                                        <p className="text-gray-600 text-sm md:text-base leading-relaxed">{selectedJob.responsibilities}</p>
+                                                    </div>
+                                                )}
+
+                                                {selectedJob.requirements && (
+                                                    <div>
+                                                        <h4 className="text-gray-900 font-bold mb-2 border-l-4 border-blue-600 pl-3 text-sm uppercase tracking-wide">Requirements</h4>
+                                                        <p className="text-gray-600 text-sm md:text-base leading-relaxed">{selectedJob.requirements}</p>
+                                                    </div>
+                                                )}
+
+                                                {selectedJob.quote && (
+                                                    <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100/50 relative mt-2 mr-2">
+                                                        <span className="text-blue-200 text-4xl absolute top-1 left-2 font-serif opacity-50 select-none">&quot;</span>
+                                                        <p className="text-gray-700 italic text-sm md:text-base relative z-10 pl-6 pr-2 py-1">
+                                                            {selectedJob.quote}&quot;
+                                                        </p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
 
                                     {/* Apply Button */}
@@ -268,4 +309,4 @@ const Careers = () => {
     );
 };
 
-export default Careers;
+export default Internship;

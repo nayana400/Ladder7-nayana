@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Navbar from '../Home/Navbar';
-import Footer from '../Home/Footer';
+import Navbar from '../Common/Navbar';
+import Footer from '../Common/Footer';
 import { motion } from 'framer-motion';
 import independenceImg from '../../assets/Images/blog/Independence Day-celebration.webp';
 import ai1Img from '../../assets/Images/blog/Ai1.webp';
@@ -52,11 +52,6 @@ const recentPosts = [
 ];
 
 const Blog = () => {
-    // Scroll to top when component mounts
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     // Feature image
     const demoImage = independenceImg;
 

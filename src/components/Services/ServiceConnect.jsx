@@ -1,0 +1,66 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
+const ServiceConnect = () => {
+    const navigate = useNavigate();
+
+    return (
+        <section className="py-8 px-6 font-sans">
+            <div className="max-w-[1200px] mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    className="relative flex flex-col md:flex-row rounded-[1.5rem] overflow-hidden shadow-xl border border-gray-100 min-h-[280px]"
+                >
+                    {/* Right Panel Background (rendered behind) */}
+                    <div className="absolute inset-0 bg-white" />
+
+                    {/* Right Content */}
+                    <div className="relative md:ml-[46%] flex flex-col justify-center gap-8 p-10 md:py-12 md:pr-14 z-10">
+                        <p className="text-gray-500 text-base md:text-lg leading-relaxed font-normal">
+                            Connect with our senior advisors to discuss your technology landscape and explore how Ladder7 can drive your next phase of growth.
+                        </p>
+                        <div>
+                            <motion.button
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                onClick={() => navigate('/contact')}
+                                className="inline-flex items-center gap-2 font-bold text-white px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-base group"
+                                style={{ background: 'oklch(42.4% .199 265.638)' }}
+                            >
+                                Talk to our Advisor
+                                <svg 
+                                    className="w-5 h-5 transition-transform group-hover:translate-x-1" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </motion.button>
+                        </div>
+                    </div>
+
+                    {/* Left Panel — diagonal right edge via clip-path */}
+                    <div
+                        className="absolute top-0 left-0 h-full w-[45%] flex flex-col justify-center p-10 md:p-14 z-20"
+                        style={{
+                            background: 'oklch(42.4% .199 265.638)',
+                            clipPath: 'polygon(0 0, 100% 0, 80% 100%, 0 100%)'
+                        }}
+                    >
+                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight mb-4 pr-8">
+                            Ready to scale your digital presence?
+                        </h2>
+                        <div className="w-10 h-1 bg-white/50 rounded-full" />
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
+
+export default ServiceConnect;

@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 import pgm1 from "../../assets/Images/pgm1.webp";
 import pgm2 from "../../assets/Images/pgm2.jpg";
 import pgm3 from "../../assets/Images/pgm3.avif";
 import pgm4 from "../../assets/Images/pgm4.jpg";
 
 function OurPrograms() {
+    const navigate = useNavigate();
     const programs = [
         {
             title: "Take Off",
@@ -17,7 +19,7 @@ function OurPrograms() {
             title: "Experience The First Job",
             description: "Dream Big. Start Here: Experience Your First Job and Build a Brighter Future",
             image: pgm2,
-            links: [{ text: "Join now", url: "#" }, { text: "Explore now", url: "#" }]
+            links: [{ text: "Join now", url: "/internship" }]
         },
         {
             title: "Earn More",
@@ -85,7 +87,7 @@ function OurPrograms() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                                     className="flex items-start md:items-center gap-4 py-4 md:py-5 border-b border-gray-200 group cursor-pointer"
-                                    onClick={() => window.location.href = program.links[0]?.url || '#'}
+                                    onClick={() => navigate(program.links[0]?.url || '#')}
                                 >
                                     <div className="shrink-0 text-[oklch(42.4%_.199_265.638)] group-hover:text-[oklch(42.4%_.199_265.638)] transition-colors p-2.5 bg-gray-50 group-hover:bg-[oklch(42.4%_.199_265.638)]/10 rounded-2xl border border-gray-200 group-hover:border-[oklch(42.4%_.199_265.638)]/30">
                                         <div className="transform transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)]">
@@ -101,15 +103,15 @@ function OurPrograms() {
                                         </p>
                                         <div className="flex items-center gap-4 mt-1">
                                             {program.links.map((link, lIdx) => (
-                                                <a
+                                                <Link
                                                     key={lIdx}
-                                                    href={link.url}
+                                                    to={link.url}
                                                     className="font-semibold text-[oklch(42.4%_.199_265.638)] hover:text-[oklch(42.4%_.199_265.638)] transition-colors flex items-center gap-1 group/link text-sm md:text-base whitespace-nowrap"
                                                     onClick={(e) => e.stopPropagation()}
                                                 >
                                                     {link.text}
                                                     <span className="transform transition-transform group-hover/link:translate-x-1">→</span>
-                                                </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>
