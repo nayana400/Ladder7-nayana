@@ -42,15 +42,6 @@ const PRODUCTS = [
         image: filldots,
         tags: []
     },
-    {
-        id: "5",
-        title: "Amiu",
-        path: "/amiu",
-        subtitle: "Unlocking Children's Genius",
-        description: "A specialized program designed for children to identify their unique talents and prepare for a brighter, more confident future.",
-        image: mirror, // Using mirror as placeholder image for now
-        tags: []
-    }
 ];
 
 function Products() {
