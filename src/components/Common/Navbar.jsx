@@ -10,7 +10,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   // Route definitions
-  const educationRoutes = ["/", "/education", "/products", "/my-ladder", "/mind-gym", "/mirror-me", "/fill-dots", "/amiu", "/internship"];
+  const educationRoutes = ["/", "/products", "/my-ladder", "/mind-gym", "/mirror-me", "/fill-dots", "/amiu", "/internship"];
   const itRoutes = ["/it"];
 
   const checkIsEducation = (path) => educationRoutes.some(route => {
@@ -241,7 +241,7 @@ function Navbar() {
             <button
               onClick={() => {
                 setActiveToggle('EDUCATION');
-                navigate('/education');
+                navigate('/');
               }}
               className={`relative z-10 flex-1 py-1 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600 font-bold' : 'text-slate-500 hover:text-slate-700'}`}
             >
@@ -358,7 +358,7 @@ function Navbar() {
               onClick={() => {
                 setActiveToggle('EDUCATION');
                 setOpen(false);
-                navigate('/education');
+                navigate('/');
               }}
               className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600 font-bold' : 'text-slate-500'}`}
             >

@@ -6,7 +6,7 @@ function Footer() {
   const location = useLocation();
 
   // Route definitions (synchronized with Navbar)
-  const educationRoutes = ["/", "/education", "/products", "/my-ladder", "/mind-gym", "/mirror-me", "/fill-dots", "/amiu", "/internship"];
+  const educationRoutes = ["/", "/products", "/my-ladder", "/mind-gym", "/mirror-me", "/fill-dots", "/amiu", "/internship"];
   const itRoutes = ["/it"];
 
   const checkIsEducation = (path) => educationRoutes.some(route => {

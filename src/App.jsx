@@ -23,7 +23,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Education />} />
         <Route path="/it" element={<IT />} />
-        <Route path="/education" element={<Education />} />
         <Route path="/my-ladder" element={<MyLadder />} />
         <Route path="/mind-gym" element={<MindGym />} />
         <Route path="/mirror-me" element={<MirrorMe />} />
