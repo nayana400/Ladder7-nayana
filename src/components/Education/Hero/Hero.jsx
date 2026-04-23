@@ -1,160 +1,139 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
+import pgm1 from '../../../assets/Images/pgm1.webp';
+import pgm2 from '../../../assets/Images/pgm2.jpg';
+import pgm3 from '../../../assets/Images/pgm3.avif';
 
 const SLIDES = [
   {
     id: 1,
-    titleTop: "DISCOVER YOUR",
-    titleMid: "WELL-BEING-FOCUSED",
-    titleBot: "CAREER!",
+    titleTop: "Discover Your",
+    titleHighlight: "Well-Being-Focused",
+    titleBot: "Career!",
     description: "Design your well-being-focused career ladder with AI-enabled solutions aligned with UNICEF's global framework of transferable skills.",
-    ctaText: "Learn More"
+    ctaText: "Learn More",
+    ctaLink: "/my-ladder",
+    image: pgm1
   },
   {
     id: 2,
-    titleTop: "EMPOWER YOUR",
-    titleMid: "FUTURE WITH ADVANCED LEARNING",
-    titleBot: "PROGRAMS",
+    titleTop: "Empower Your",
+    titleHighlight: "Future With Advanced",
+    titleBot: "Learning Programs",
     description: "Empower your career with skill-building programs designed for today's dynamic world. Learn in-demand skills, stay ahead of the curve, and shape a brighter future.",
-    ctaText: "Explore Now"
+    ctaText: "Explore Now",
+    ctaLink: "/internship",
+    image: pgm2
   },
   {
     id: 3,
-    titleTop: "TRANSFORM YOUR",
-    titleMid: "BUSINESS WITH ADVANCED TECHNOLOGY",
-    titleBot: "STRATEGIES",
+    titleTop: "Transform Your",
+    titleHighlight: "Business With Advanced",
+    titleBot: "Technology Strategies",
     description: "Drive your business forward with our customized IT services that streamline processes and ensure sustainable growth in today’s fast-paced digital environment.",
-    ctaText: "Get Started"
+    ctaText: "Get Started",
+    ctaLink: "#",
+    image: pgm3
   }
 ];
 
-function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+const Hero = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-  }, []);
+    // Auto-rotate every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
-  const handlePrev = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
-  }, []);
+    const slide = SLIDES[currentIndex];
 
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(handleNext, 6000);
-    return () => clearInterval(timer);
-  }, [handleNext, isPaused]);
+    return (
+        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-visible bg-[oklch(0.97_0_0)]">
+            {/* Background Blurs */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/50 blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] rounded-full bg-purple-100/40 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+            </div>
 
-  return (
-    <section className="h-[90vh] bg-[oklch(0.97_0_0)] text-gray-900 flex flex-col justify-center px-6 md:px-16 relative overflow-hidden pt-20">
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* Slider Container */}
-        <div className="relative overflow-hidden w-full h-[60vh] md:h-[50vh]">
-          {SLIDES.map((slide, index) => {
-            const isActive = index === currentSlide;
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center min-h-[500px]">
+                {/* LEFT: Text Content */}
+                <div className="flex flex-col items-start z-10 w-full relative">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.5 }}
+                            className="flex flex-col items-start w-full"
+                        >
+                            <motion.h1
+                                className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 tracking-tight leading-[1.2] mb-6"
+                            >
+                                {slide.titleTop} <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">{slide.titleHighlight}</span> <br className="hidden sm:block" /> {slide.titleBot}
+                            </motion.h1>
 
-            return (
-              <motion.div
-                key={slide.id}
-                initial={false}
-                animate={{
-                  x: isActive ? "0%" : index > currentSlide ? "100%" : "-100%",
-                  opacity: isActive ? 1 : 0,
-                  scale: isActive ? 1 : 0.95
-                }}
-                transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-                style={{ pointerEvents: isActive ? 'auto' : 'none' }}
-              >
-                {/* Left Content */}
-                <div className="z-10">
-                  <h2 className="text-4xl md:text-6xl mb-8 leading-[1.1] tracking-tight font-bold">
-                    <span className="whitespace-nowrap">
-                      <span className="text-blue-600">{slide.titleTop.charAt(0)}</span>
-                      {slide.titleTop.slice(1)}
-                    </span>
-                    <span className="block text-xl md:text-3xl text-gray-600 mt-2 whitespace-nowrap">{slide.titleMid}</span>
-                    <span className="text-gray-900">{slide.titleBot}</span>
-                  </h2>
+                            <motion.p
+                                className="text-base lg:text-lg text-gray-600 mb-10 leading-relaxed max-w-lg font-medium"
+                            >
+                                {slide.description}
+                            </motion.p>
+
+                            <motion.div
+                                className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
+                            >
+                                <Link to={slide.ctaLink} className="px-8 py-4 bg-[#6226a9] text-white font-bold rounded-xl shadow-xl shadow-[#6226a9]/20 hover:bg-[#4d1d85] hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#6226a9]/30 transition-all duration-300 w-full sm:w-auto text-center inline-block">
+                                    {slide.ctaText}
+                                </Link>
+                            </motion.div>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
 
-                {/* Right Content */}
-                <div className="z-10 flex flex-col justify-center items-start md:pl-24">
-                  <div className="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 mb-6 rounded-full"></div>
-                  <p className="text-gray-600 mb-8 max-w-md text-base font-semibold leading-relaxed">
-                    {slide.description}
-                  </p>
-                  <a href="#" className="flex items-center text-blue-600 hover:text-blue-800 transition text-2xl font-bold group cursor-pointer">
-                    {slide.ctaText}
-                    <span className="ml-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg px-3 py-1 text-sm group-hover:scale-110 transition-transform duration-300 shadow-md">
-                      →
-                    </span>
-                  </a>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Controls: Dots and Play/Pause Centered at Bottom */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-6 z-20 bg-white/50 backdrop-blur-md px-6 py-3 rounded-full border border-gray-200 shadow-sm">
-          {/* Left Arrow */}
-          <button
-            onClick={handlePrev}
-            className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-white/80 transition group text-gray-700 hover:text-blue-600"
-            aria-label="Previous Slide"
-          >
-            <svg className="w-4 h-4 transition-transform group-active:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          {/* Dots */}
-          <div className="flex gap-3 items-center">
-            {SLIDES.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentSlide(index);
-                  setIsPaused(true);
-                }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                  ? "bg-blue-600 scale-125 shadow-lg"
-                  : "bg-gray-300 hover:bg-gray-500"
-                  }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Play/Pause */}
-          <button
-            onClick={() => setIsPaused(!isPaused)}
-            className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-white/80 transition text-gray-700 hover:text-blue-600"
-            aria-label={isPaused ? "Play" : "Pause"}
-          >
-            {isPaused ? (
-              <svg className="w-3 h-3 fill-current translate-x-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-            ) : (
-              <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
-            )}
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            onClick={handleNext}
-            className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-white/80 transition group text-gray-700 hover:text-blue-600"
-            aria-label="Next Slide"
-          >
-            <svg className="w-4 h-4 transition-transform group-active:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
+                {/* RIGHT: Rotating Image Stack */}
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="relative z-10 w-full flex justify-center lg:justify-end mt-10 lg:mt-0"
+                >
+                    <div className="relative w-full max-w-[420px] xl:max-w-[460px] aspect-square">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-200 to-purple-200 rounded-[2.5rem] rotate-6 scale-105 shadow-inner opacity-70 transition-transform duration-700 hover:rotate-12"></div>
+                        <div className="absolute inset-0 bg-gradient-to-bl from-indigo-100 to-blue-50 rounded-[2.5rem] -rotate-3 scale-100 border-2 border-white shadow-2xl overflow-hidden group">
+                            <AnimatePresence mode="wait">
+                                <motion.img
+                                    key={currentIndex}
+                                    src={slide.image}
+                                    alt="Education Slide"
+                                    initial={{ opacity: 0, scale: 1.1 }}
+                                    animate={{ opacity: 1, scale: 1.05 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                                    className="absolute inset-0 w-full h-full object-cover rounded-[2.5rem] transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                                />
+                            </AnimatePresence>
+                            {/* Dots Overlay */}
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                                {SLIDES.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setCurrentIndex(i)}
+                                        className={`block h-1.5 rounded-full transition-all duration-500 cursor-pointer ${i === currentIndex ? 'w-6 bg-white shadow-sm' : 'w-1.5 bg-white/40 hover:bg-white/60'}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
 
 export default Hero;

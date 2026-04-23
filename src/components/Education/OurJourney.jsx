@@ -115,7 +115,7 @@ function OurJourney() {
                 onClick={() => handleStepClick(index)}
                 onMouseEnter={() => setHoveredStep(index)}
                 onMouseLeave={() => setHoveredStep(null)}
-                className={`relative flex items-center justify-center p-1.5 md:p-2 rounded-full min-w-[80px] md:min-w-[110px] cursor-pointer transition-all duration-300 border-2 ${isActive || isHovered
+                className={`relative flex items-center justify-center p-1 sm:p-1.5 md:p-2 rounded-full min-w-[60px] sm:min-w-[80px] md:min-w-[110px] cursor-pointer transition-all duration-300 border-2 ${isActive || isHovered
                     ? "scale-105 border-black shadow-lg"
                     : "border-transparent"
                     }`}
@@ -124,7 +124,7 @@ function OurJourney() {
                     boxShadow: (isActive || isHovered) ? `0 0 20px ${step.color}AA` : undefined
                 }}
             >
-                <span className="text-[7px] md:text-[10px] font-bold uppercase tracking-wider text-center text-black">
+                <span className="text-[6px] sm:text-[7px] md:text-[10px] font-bold uppercase tracking-wider text-center text-black">
                     {step.title}
                 </span>
             </button>
@@ -138,7 +138,7 @@ function OurJourney() {
             down: "M12 5v14M5 12l7 7 7-7",
         };
         return (
-            <svg className={`w-5 h-5 text-black/40 ${className}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+            <svg className={`w-3 h-3 sm:w-5 sm:h-5 text-black/40 ${className}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d={directions[direction]} />
             </svg>
         );
@@ -180,7 +180,7 @@ function OurJourney() {
                                 </div>
 
                                 {/* Row 2: 7 <- 6 <- 5 */}
-                                <div className="flex items-center justify-start gap-1 md:gap-4 relative pr-12 md:pr-16">
+                                <div className="flex items-center justify-start gap-1 md:gap-4 relative pr-10 md:pr-16">
                                     <StepButton index={6} />
                                     <Arrow direction="left" />
                                     <StepButton index={5} />
@@ -250,7 +250,7 @@ function OurJourney() {
 
                         {/* Central Content Area */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div className="w-[200px] md:w-[350px] text-center z-10 px-4">
+                            <div className="w-[180px] sm:w-[200px] md:w-[350px] text-center z-10 px-4">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeStep}

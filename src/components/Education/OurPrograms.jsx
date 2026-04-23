@@ -13,7 +13,8 @@ function OurPrograms() {
             title: "Take Off",
             description: "Ignite your career trajectory with Takeoff, the ultimate launchpad to your dream job.",
             image: pgm1,
-            links: [{ text: "Join Now", url: "#" }]
+            links: [],
+            comingSoon: true
         },
         {
             title: "Experience The First Job",
@@ -25,13 +26,14 @@ function OurPrograms() {
             title: "Earn More",
             description: "Supercharge your income: EarnMore from home, on your terms",
             image: pgm3,
-            links: [{ text: "Join Now", url: "#" }]
+            links: [{ text: "Join Now", url: "/earn-more" }]
         },
         {
             title: "Best Pick",
             description: "Talent Meets Opportunity: Best Pick Connects Top Colleges with Leading Corporates.",
             image: pgm4,
-            links: [{ text: "Join Now", url: "#" }]
+            links: [],
+            comingSoon: true
         }
     ];
 
@@ -86,8 +88,14 @@ function OurPrograms() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                    className="flex items-start md:items-center gap-4 py-4 md:py-5 border-b border-gray-200 group cursor-pointer"
-                                    onClick={() => navigate(program.links[0]?.url || '#')}
+                                    className={`flex items-start md:items-center gap-4 py-4 md:py-5 border-b border-gray-200 group ${program.comingSoon ? 'cursor-default' : 'cursor-pointer'}`}
+                                    onClick={(e) => {
+                                        if (program.comingSoon) {
+                                            e.preventDefault();
+                                        } else {
+                                            navigate(program.links[0]?.url || '#');
+                                        }
+                                    }}
                                 >
                                     <div className="shrink-0 text-[oklch(42.4%_.199_265.638)] group-hover:text-[oklch(42.4%_.199_265.638)] transition-colors p-2.5 bg-gray-50 group-hover:bg-[oklch(42.4%_.199_265.638)]/10 rounded-2xl border border-gray-200 group-hover:border-[oklch(42.4%_.199_265.638)]/30">
                                         <div className="transform transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)]">
@@ -95,9 +103,16 @@ function OurPrograms() {
                                         </div>
                                     </div>
                                     <div className="flex-1 flex flex-col gap-3">
-                                        <h4 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[oklch(42.4%_.199_265.638)] transition-colors">
-                                            {program.title}
-                                        </h4>
+                                        <div className="flex items-center justify-start gap-1.5 md:gap-2">
+                                            <h4 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[oklch(42.4%_.199_265.638)] transition-colors">
+                                                {program.title}
+                                            </h4>
+                                            {program.comingSoon && (
+                                                <span className="bg-[#9457ff] text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shrink-0 shadow-sm shadow-[#9457ff]/30">
+                                                    Coming Soon
+                                                </span>
+                                            )}
+                                        </div>
                                         <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md pl-4">
                                             {program.description}
                                         </p>

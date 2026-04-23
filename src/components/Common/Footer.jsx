@@ -1,16 +1,43 @@
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Images/LADDER 7 LOGO.png";
 
 function Footer() {
   const location = useLocation();
-  const isEducationPage = location.pathname.startsWith("/education") || location.pathname.startsWith("/my-ladder");
+
+  // Route definitions (synchronized with Navbar)
+  const educationRoutes = ["/", "/education", "/products", "/my-ladder", "/mind-gym", "/mirror-me", "/fill-dots", "/amiu", "/internship"];
+  const itRoutes = ["/it"];
+
+  const checkIsEducation = (path) => educationRoutes.some(route => {
+    if (route === "/") return path === "/";
+    return path.startsWith(route);
+  });
+  const checkIsIT = (path) => itRoutes.some(route => path === route || path.startsWith(route));
+
+  const [isEducationPage, setIsEducationPage] = useState(() => {
+    const saved = localStorage.getItem("ladder7_mode");
+    if (saved) return saved === "EDUCATION";
+    return checkIsEducation(location.pathname);
+  });
+
+  useEffect(() => {
+    if (checkIsEducation(location.pathname)) {
+      setIsEducationPage(true);
+    } else if (checkIsIT(location.pathname)) {
+      setIsEducationPage(false);
+    } else {
+      const saved = localStorage.getItem("ladder7_mode");
+      if (saved) setIsEducationPage(saved === "EDUCATION");
+    }
+  }, [location.pathname]);
   return (
     <footer className="bg-[oklch(0.97_0_0)] text-gray-900 pt-16 pb-8 px-6 relative border-t border-gray-200">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-12 mb-8">
 
         {/* Column 1: Brand & Socials */}
         <div className="flex flex-col gap-6 min-w-[180px]">
-          <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
+          <Link to={isEducationPage ? "/" : "/it"} className="flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
             <img src={logo} alt="Ladder7 Logo" className="h-10 w-auto object-contain" />
             <div className="flex flex-col leading-tight">
               <span className="text-xl font-bold tracking-tight text-blue-900">Ladder7</span>
@@ -35,17 +62,17 @@ function Footer() {
         </div>
 
         {/* Links Sections Container */}
-        <div className={`flex-1 grid grid-cols-2 ${isEducationPage ? 'lg:grid-cols-6 gap-4 lg:gap-6' : 'lg:grid-cols-4 gap-8'}`}>
+        <div className={`flex-1 grid grid-cols-1 sm:grid-cols-2 ${isEducationPage ? 'md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-6' : 'md:grid-cols-4 gap-8'}`}>
 
           {/* Column 2: Products */}
           <div className="flex flex-col gap-4">
             <h4 className="text-base font-bold text-gray-900">Products</h4>
             <div className="flex flex-col gap-2 text-xs">
-              <Link to="/#programs" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Amiu</Link>
-              <Link to="/program/3" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Mirror Me</Link>
+              <Link to="/amiu" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Amiu</Link>
+              <Link to="/mirror-me" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Mirror Me</Link>
               <Link to="/my-ladder" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">My Ladder</Link>
-              <Link to="/program/2" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Mind Gym</Link>
-              <Link to="/program/4" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Fill Dots</Link>
+              <Link to="/mind-gym" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Mind Gym</Link>
+              <Link to="/fill-dots" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Fill Dots</Link>
             </div>
           </div>
 
@@ -56,7 +83,7 @@ function Footer() {
               <Link to="/blog" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Blogs</Link>
               <Link to="/careers" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Careers</Link>
               <Link to="/contact" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">Contact Form</Link>
-              <Link to="/#faq" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">FAQ</Link>
+              <Link to="/it#faq" className="text-gray-600 hover:text-blue-600 hover:underline transition-all">FAQ</Link>
             </div>
           </div>
 
@@ -86,7 +113,7 @@ function Footer() {
 
           {/* Column 6: Certified Program (Education Only) */}
           {isEducationPage && (
-            <div className="flex flex-col col-span-2 lg:col-span-2 mt-4 lg:mt-0">
+            <div className="flex flex-col col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
               <div className="bg-white rounded-[14px] border border-gray-100 p-4 shadow-sm flex items-start gap-4">
                 <div className="text-blue-400 mt-1 shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

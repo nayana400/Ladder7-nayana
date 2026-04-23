@@ -18,7 +18,7 @@ const PRODUCTS = [
     {
         id: "2",
         title: "Mind Gym",
-        path: "/products/2",
+        path: "/mind-gym",
         subtitle: "Train your mind to unlock success through focused mental conditioning and resilience-building techniques.",
         description: "Interactive mind exercise for a healthy mind which will enable you to practice stress management and improve your decision making skills leading to a better life.",
         image: mindgym,
@@ -27,19 +27,28 @@ const PRODUCTS = [
     {
         id: "3",
         title: "Mirror Me",
-        path: "/products/3",
-        subtitle: "Discover your true potential by exploring strengths and unlocking avenues for personal success.",
-        description: "Mirror Me is a self-reflection program to make anybody realize what you know about yourself in terms of talents, IQ, EQ, and Goals through a set of simple programs.",
+        path: "/mirror-me",
+        subtitle: "Discover Your True Potential",
+        description: "Gain a deeper understanding of your talents, IQ, EQ, and personal goals through insightful exercises that align self-awareness with life goals.",
         image: mirror,
         tags: []
     },
     {
         id: "4",
         title: "Fill Dots",
-        path: "/products/4",
-        subtitle: "Bridge the gap to success by connecting missing pieces and achieving your dreams.",
-        description: "Specially designed program to upskill and bridge the gap between you and your next best career.",
+        path: "/fill-dots",
+        subtitle: "Bridging Skill Gaps",
+        description: "Tailored training solutions to help you advance to your next career level, whether you are a corporate professional, student, or returning to the workforce.",
         image: filldots,
+        tags: []
+    },
+    {
+        id: "5",
+        title: "Amiu",
+        path: "/amiu",
+        subtitle: "Unlocking Children's Genius",
+        description: "A specialized program designed for children to identify their unique talents and prepare for a brighter, more confident future.",
+        image: mirror, // Using mirror as placeholder image for now
         tags: []
     }
 ];

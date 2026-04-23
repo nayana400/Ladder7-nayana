@@ -4,7 +4,6 @@ import Products from "./Products/Products";
 import OurJourney from "./OurJourney";
 import OurPrograms from "./OurPrograms";
 import Advisor from "./Advisor";
-import Partners from "./Partners";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 import Footer from "../Common/Footer";
@@ -16,7 +15,6 @@ const Education = () => {
             <Hero />
             <Products />
             <OurJourney />
-            <Partners />
             <Testimonials />
             <OurPrograms />
             <Advisor />

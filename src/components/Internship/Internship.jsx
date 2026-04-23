@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import career images
@@ -71,6 +71,7 @@ const OPEN_POSITIONS = [
 const Internship = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [selectedJob, setSelectedJob] = useState(OPEN_POSITIONS[0]);
+    const detailRef = useRef(null);
 
     // Auto-rotate images on right side every 4 seconds
     useEffect(() => {
@@ -79,6 +80,16 @@ const Internship = () => {
         }, 4000);
         return () => clearInterval(interval);
     }, []);
+
+    const handleJobSelect = (job) => {
+        setSelectedJob(job);
+        // On mobile, scroll to detail section when a job is clicked
+        if (window.innerWidth < 768) {
+            setTimeout(() => {
+                detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    };
 
     return (
         <div className="bg-white min-h-screen">
@@ -194,7 +205,7 @@ const Internship = () => {
                             {OPEN_POSITIONS.map((job, index) => (
                                 <motion.button
                                     key={index}
-                                    onClick={() => setSelectedJob(job)}
+                                    onClick={() => handleJobSelect(job)}
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
@@ -219,12 +230,13 @@ const Internship = () => {
                         {/* RIGHT: Selected Job Detail */}
                         <AnimatePresence mode="wait">
                             <motion.div
+                                ref={detailRef}
                                 key={selectedJob.title}
                                 initial={{ opacity: 0, y: 16 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -16 }}
                                 transition={{ duration: 0.4 }}
-                                className="bg-white border border-gray-100 border-b-[8px] border-b-[#003399] rounded-3xl overflow-hidden h-full shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] flex flex-col"
+                                className="bg-white border border-gray-100 border-b-[8px] border-b-[#003399] rounded-3xl overflow-hidden h-full shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] flex flex-col scroll-mt-24"
                             >
                                 {/* Image */}
                                 <div className="h-64 overflow-hidden relative">

@@ -8,9 +8,35 @@ function Navbar() {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  // EDUCATION is centered at /education and /products, IT is at / and others
-  const isEducation = location.pathname.startsWith("/education") || location.pathname.startsWith("/products") || location.pathname.startsWith("/my-ladder");
-  const [activeToggle, setActiveToggle] = useState(isEducation ? "EDUCATION" : "IT");
+
+  // Route definitions
+  const educationRoutes = ["/", "/education", "/products", "/my-ladder", "/mind-gym", "/mirror-me", "/fill-dots", "/amiu", "/internship"];
+  const itRoutes = ["/it"];
+
+  const checkIsEducation = (path) => educationRoutes.some(route => {
+    if (route === "/") return path === "/";
+    return path.startsWith(route);
+  });
+  const checkIsIT = (path) => itRoutes.some(route => path === route || path.startsWith(route));
+
+  const [activeToggle, setActiveToggle] = useState(() => {
+    const saved = localStorage.getItem("ladder7_mode");
+    if (saved) return saved;
+    return checkIsEducation(location.pathname) ? "EDUCATION" : "IT";
+  });
+
+  useEffect(() => {
+    if (checkIsEducation(location.pathname)) {
+      setActiveToggle("EDUCATION");
+      localStorage.setItem("ladder7_mode", "EDUCATION");
+    } else if (checkIsIT(location.pathname)) {
+      setActiveToggle("IT");
+      localStorage.setItem("ladder7_mode", "IT");
+    }
+  }, [location.pathname]);
+
+  const isEducation = activeToggle === "EDUCATION";
+
   const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -54,14 +80,14 @@ function Navbar() {
     ],
     products: [
       { name: "My Ladder", path: "/my-ladder" },
-      { name: "Mind gym", path: "/program/2" },
-      { name: "Mirror me", path: "/program/3" },
-      { name: "Fill Dots", path: "/program/4" },
-      { name: "Amiu", path: "#programs" }
+      { name: "Mind gym", path: "/mind-gym" },
+      { name: "Mirror me", path: "/mirror-me" },
+      { name: "Fill Dots", path: "/fill-dots" },
+      { name: "Amiu", path: "/amiu" }
     ],
     programs: [
       { name: "Experience The First job", path: "/internship" },
-      { name: "Earn more", path: "#our-programs" },
+      { name: "Earn more", path: "/earn-more" },
 
     ]
   };
@@ -80,7 +106,7 @@ function Navbar() {
     <nav className="bg-white/85 backdrop-blur-md text-gray-900 w-full z-50 fixed top-0 left-0 border-b border-gray-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo Section */}
-        <Link to="/" className="flex items-center flex-shrink-0">
+        <Link to={isEducation ? "/" : "/it"} className="flex items-center flex-shrink-0">
           <img src={logo} alt="Ladder7 Logo" className="h-10 w-auto object-contain mr-2" />
           <span className="text-xl font-bold tracking-tight text-gray-900">Ladder7</span>
         </Link>
@@ -88,7 +114,7 @@ function Navbar() {
         {/* Right Section: Menu items and Action buttons Grouped */}
         <div className="flex items-center gap-10">
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8 text-sm font-semibold">
+          <div className="hidden lg:flex items-center space-x-8 text-sm font-semibold">
             <Link to="/about" className="hover:text-blue-600 transition py-2 whitespace-nowrap" onClick={(e) => handleLinkClick(e, "/about")}>Who we are</Link>
             <div
               ref={dropdownRef}
@@ -210,30 +236,30 @@ function Navbar() {
           {/* Toggle Button */}
           <div className="hidden lg:flex bg-[#f1f5f9] p-0.5 rounded-full relative text-[10px] font-black tracking-widest w-[180px] shrink-0 border border-slate-200/50">
             <div
-              className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-in-out ${activeToggle === 'EDUCATION' ? 'translate-x-full' : 'translate-x-0'}`}
+              className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-in-out ${activeToggle === 'IT' ? 'translate-x-full' : 'translate-x-0'}`}
             />
-            <button
-              onClick={() => {
-                setActiveToggle('IT');
-                navigate('/');
-              }}
-              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-700'}`}
-            >
-              IT
-            </button>
             <button
               onClick={() => {
                 setActiveToggle('EDUCATION');
                 navigate('/education');
               }}
-              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600 font-bold' : 'text-slate-500 hover:text-slate-700'}`}
             >
               EDUCATION
+            </button>
+            <button
+              onClick={() => {
+                setActiveToggle('IT');
+                navigate('/it');
+              }}
+              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-700'}`}
+            >
+              IT
             </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               className="text-2xl text-gray-800"
               onClick={() => setOpen(!open)}
@@ -246,7 +272,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-4 shadow-xl relative z-50 max-h-[85vh] overflow-y-auto w-full text-gray-800">
+        <div className="lg:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-4 shadow-xl relative z-50 max-h-[85vh] overflow-y-auto w-full text-gray-800">
           <Link to="/about" className="block hover:text-blue-600 py-3 border-b border-gray-100 font-medium" onClick={(e) => handleLinkClick(e, "/about")}>Who we are</Link>
 
           <div className="space-y-4 border-b border-gray-100 pb-2">
@@ -326,27 +352,27 @@ function Navbar() {
           {/* Mobile Toggle Button */}
           <div className="flex bg-[#f1f5f9] p-0.5 rounded-full relative text-[11px] font-black tracking-widest w-full max-w-[240px] mx-auto mt-8 mb-4 border border-slate-200/50">
             <div
-              className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-sm transition-transform duration-300 ease-in-out ${activeToggle === 'EDUCATION' ? 'translate-x-full' : 'translate-x-0'}`}
+              className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-white rounded-full shadow-sm transition-transform duration-300 ease-in-out ${activeToggle === 'IT' ? 'translate-x-full' : 'translate-x-0'}`}
             />
-            <button
-              onClick={() => {
-                setActiveToggle('IT');
-                setOpen(false);
-                navigate('/');
-              }}
-              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500'}`}
-            >
-              IT
-            </button>
             <button
               onClick={() => {
                 setActiveToggle('EDUCATION');
                 setOpen(false);
                 navigate('/education');
               }}
-              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600' : 'text-slate-500'}`}
+              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'EDUCATION' ? 'text-purple-600 font-bold' : 'text-slate-500'}`}
             >
               EDUCATION
+            </button>
+            <button
+              onClick={() => {
+                setActiveToggle('IT');
+                setOpen(false);
+                navigate('/it');
+              }}
+              className={`relative z-10 flex-1 py-1.5 text-center transition-colors duration-300 ${activeToggle === 'IT' ? 'text-blue-600 font-bold' : 'text-slate-500'}`}
+            >
+              IT
             </button>
           </div>
         </div>

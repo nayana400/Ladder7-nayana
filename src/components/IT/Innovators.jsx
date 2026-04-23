@@ -36,7 +36,7 @@ const Innovators = () => {
                                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                                className="absolute bottom-[-20px] right-[-20px] w-[65%] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-lg z-10 border-[5px] border-white group"
+                                className="absolute bottom-0 right-0 lg:bottom-[-20px] lg:right-[-20px] w-[65%] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-lg z-10 border-[5px] border-white group"
                             >
                                 <img
                                     src={img2}

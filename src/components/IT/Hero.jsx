@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import heroImg from '../../assets/Images/about.webp';
 
 const Hero = () => {
@@ -37,26 +38,32 @@ const Hero = () => {
           className="flex flex-col items-start z-10 w-full"
         >
           <motion.div variants={itemVariants} className="inline-block px-5 py-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full text-blue-700 font-bold text-sm mb-8 border border-blue-100/50 shadow-sm transition-all hover:shadow-md hover:scale-105">
-            ✨ Welcome to Ladder7
+            Intelligent AI
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-[1.1] mb-8">
-            Transforming <br className="hidden lg:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Ideas</span> into <br className="hidden sm:block" /> Digital Reality
+          <motion.h1 variants={itemVariants} className="text-3xl lg:text-5xl font-black text-gray-900 tracking-tight leading-[1.1] mb-8">
+            Does Your Website? <br className="hidden lg:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Actually Making You Money</span>
           </motion.h1>
 
           <motion.p variants={itemVariants} className="text-lg lg:text-xl text-gray-600 mb-10 leading-relaxed max-w-lg font-medium">
-            We build intelligent, high-performance web and mobile applications that drive business growth and elevate user experiences to a premium level.
+            From intelligent websites to autonomous AI revenue systems, we build connected digital experiences that attract the right visitors, capture leads, and grow your business around the clock.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-            <button className="px-8 py-4 bg-gray-900 text-white font-bold rounded-xl shadow-xl shadow-gray-900/20 hover:bg-gray-800 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-900/30 transition-all duration-300 w-full sm:w-auto text-center">
-              Explore Services
-            </button>
-            <button className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl shadow-md border border-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
-              Contact Us
-              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </button>
+            <Link
+              to="/contact"
+              className="px-8 py-4 bg-gray-900 text-white font-bold rounded-xl shadow-xl shadow-gray-900/20 hover:bg-gray-800 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-900/30 transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center gap-2"
+            >
+              Build My Revenue Engine
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </Link>
+            <Link
+              to="/services"
+              className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl shadow-md border border-gray-100 hover:border-gray-300 hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto"
+            >
+              View Our Capabilities
+            </Link>
           </motion.div>
         </motion.div>
 

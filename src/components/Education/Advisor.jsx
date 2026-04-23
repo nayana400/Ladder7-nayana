@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import advisor1 from "../../assets/Images/advisor1.jpg"
 const Advisor = () => {
     const features = [
@@ -15,22 +17,23 @@ const Advisor = () => {
                     <h2 className="text-3xl md:text-5xl font-bold mb-1 leading-tight text-gray-900">
                         Talk to our Advisor
                     </h2>
-                    <p className="text-gray-600 text-lg mb-2 uppercase tracking-widest font-semibold">
-                        AND GET
+                    <p className="text-gray-600 text-base md:text-lg mb-4 mt-2 max-w-2xl">
+                        Ready to take the next step? Our expert advisors are here to provide personalized guidance tailored to your specific business needs. Schedule a strategy session today.
                     </p>
 
-                    <div className="flex flex-nowrap gap-6 mb-4 overflow-x-auto no-scrollbar">
+
+                    <div className="flex flex-col gap-3 mb-6">
                         {features.map((feature, idx) => (
-                            <div key={idx} className="flex items-center gap-2 whitespace-nowrap">
-                                <span className="text-[oklch(42.4%_.199_265.638)] text-lg font-bold">✓</span>
-                                <span className="text-base font-bold text-gray-800">{feature}</span>
+                            <div key={idx} className="flex items-center gap-3">
+                                <span className="text-[oklch(42.4%_.199_265.638)] text-xl font-bold">✓</span>
+                                <span className="text-lg font-bold text-gray-800">{feature}</span>
                             </div>
                         ))}
                     </div>
 
-                    <a href="" className="inline-block mt-2 bg-[oklch(42.4%_.199_265.638)] text-white py-4 px-10 rounded text-base font-bold shadow-xl hover:bg-[oklch(42.4%_.199_265.638)]/90 transition-colors">
+                    <Link to="/contact" className="inline-block mt-2 bg-[oklch(42.4%_.199_265.638)] text-white py-4 px-10 rounded text-base font-bold shadow-xl hover:bg-[oklch(42.4%_.199_265.638)]/90 transition-colors">
                         Request a call
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Illustration */}

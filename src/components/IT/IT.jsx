@@ -11,7 +11,7 @@ import FAQ from './FAQ';
 
 import Footer from '../Common/Footer';
 
-const Home = () => {
+const IT = () => {
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
@@ -46,4 +46,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default IT;

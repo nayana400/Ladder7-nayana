@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import Navbar from '../Common/Navbar';
 import ServiceCard from './ServiceCard';
 import ServiceConnect from './ServiceConnect';
+import TechStack from '../IT/TechStack';
 import Footer from '../Common/Footer';
 import heroBg from '../../assets/Images/services/service.webp';
 
@@ -181,7 +182,7 @@ const ServicesPage = () => {
                     initial={{ x: '-100%' }}
                     animate={{ x: 0 }}
                     transition={{ duration: 0.8, ease: "circOut" }}
-                    className="absolute top-1/2 -translate-y-1/2 left-0 w-[85%] md:w-[60%] lg:w-[45%] h-auto py-16 px-10 md:px-16 bg-[oklch(0.61_0.2_295.3)] rounded-r-[3rem] shadow-2xl z-10 overflow-hidden flex flex-col justify-center"
+                    className="absolute top-1/2 -translate-y-1/2 left-0 w-[85%] md:w-[60%] lg:w-[45%] h-auto py-10 md:py-16 px-8 md:px-16 bg-[oklch(0.61_0.2_295.3)] rounded-r-[3rem] shadow-2xl z-10 overflow-hidden flex flex-col justify-center"
                 >
                     {/* Wavy Background Graphic inside red box */}
                     <svg className="absolute bottom-0 right-0 w-full h-auto opacity-20 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -260,9 +261,10 @@ const ServicesPage = () => {
                 ))}
             </div>
 
-            <div className="mb-12">
-                <ServiceConnect />
+            <div id="tech-stack" className="scroll-mt-32">
+                <TechStack />
             </div>
+            <ServiceConnect />
 
             <Footer />
         </div>

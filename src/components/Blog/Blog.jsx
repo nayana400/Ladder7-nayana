@@ -81,11 +81,11 @@ const Blog = () => {
                     </div>
 
                     {/* Text Content */}
-                    <div className="md:w-1/2 p-8 md:p-14 flex flex-col justify-center">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                    <div className="md:w-1/2 p-6 md:p-14 flex flex-col justify-center">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight group-hover:text-blue-600 transition-colors duration-300">
                             Celebrating Unity and Responsibility: Independence Day at Ladder7
                         </h2>
-                        <p className="text-gray-600 text-lg mb-10 leading-relaxed font-light">
+                        <p className="text-gray-600 text-base md:text-lg mb-6 md:mb-10 leading-relaxed font-light">
                             As we honor our nation's independence, we reflect on the liberty to innovate, build, and transform the digital landscape for a brighter future.
                         </p>
                         <div className="mt-auto">
