@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import ladder from "../../../assets/Images/ladder.jpg";
+import ladder from "../../../assets/Images/products/myladder-hero.webp";
 import Navbar from "../../Common/Navbar";
 import Footer from "../../Common/Footer";
 import OurJourney from "../OurJourney";
@@ -206,7 +206,7 @@ const MyLadder = () => {
                                 We believe true success starts from within. MyLadder places a strong emphasis on self-awareness and mental balance, ensuring that as you climb, you remain grounded and fulfilled.
                             </p>
                         </div>
-                        
+
                         {/* Second Column */}
                         <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all shadow-lg">
                             <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Upskilling for a Balanced Life</h3>

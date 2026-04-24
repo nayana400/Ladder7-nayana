@@ -4,7 +4,7 @@ import Footer from '../Common/Footer';
 import { motion } from 'framer-motion';
 import independenceImg from '../../assets/Images/blog/Independence Day-celebration.webp';
 import ai1Img from '../../assets/Images/blog/Ai1.webp';
-import ai2Img from '../../assets/Images/blog/Ai2.jpg';
+import ai2Img from '../../assets/Images/blog/Ai2.webp';
 import christmasImg from '../../assets/Images/blog/Christmas-celebration.webp';
 import onamImg from '../../assets/Images/blog/Onam-celebration.webp';
 

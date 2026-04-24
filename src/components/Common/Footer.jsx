@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/Images/LADDER 7 LOGO.png";
+import logo from "../../assets/Images/LADDER 7 LOGO.webp";
 
 function Footer() {
   const location = useLocation();

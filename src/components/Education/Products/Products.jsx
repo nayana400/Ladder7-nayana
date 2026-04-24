@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import Tilt from "react-parallax-tilt";
-import ladder from "../../../assets/Images/ladder.jpg";
-import mindgym from "../../../assets/Images/mindgym.jpg";
-import mirror from "../../../assets/Images/mirror.jpg";
-import filldots from "../../../assets/Images/filldots.webp";
+import ladder from "../../../assets/Images/education/ladder.webp";
+import mindgym from "../../../assets/Images/education/mindgym.webp";
+import mirror from "../../../assets/Images/education/mirror.webp";
+import filldots from "../../../assets/Images/education/filldots.webp";
 
 const PRODUCTS = [
     {

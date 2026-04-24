@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../Common/Navbar";
 import Footer from "../../Common/Footer";
-import mindGymHero from "../../../assets/Images/products/mind_gym_hero.png";
+import mindGymHero from "../../../assets/Images/products/mind_gym_hero.webp";
 
 const MindGym = () => {
     useEffect(() => {
@@ -82,7 +82,7 @@ const MindGym = () => {
                             <h2 className="text-4xl font-bold text-slate-900 mb-6 leading-tight">
                                 Empowering Growth through <span className="text-[oklch(42.4%_0.199_265.638)]">Holistic Development.</span>
                             </h2>
-                            
+
                             {/* Framework Alignment Card */}
                             <div className="bg-white p-8 rounded-2xl border-2 border-[oklch(42.4%_0.199_265.638)]/10 shadow-lg shadow-[oklch(42.4%_0.199_265.638)]/5 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-[oklch(42.4%_0.199_265.638)]/5 rounded-bl-full -mr-12 -mt-12 transition-all duration-500 group-hover:scale-150"></div>

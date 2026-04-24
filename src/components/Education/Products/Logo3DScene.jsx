@@ -2,7 +2,7 @@ import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Float, Center, ContactShadows, Environment } from '@react-three/drei';
 import * as THREE from 'three';
-import logoUrl from "../../../assets/Images/LADDER 7 LOGO.png";
+import logoUrl from "../../../assets/Images/LADDER 7 LOGO.webp";
 
 // Component that suspends while loading texture
 const LogoMesh = () => {

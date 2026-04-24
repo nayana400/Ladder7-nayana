@@ -1,9 +1,9 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
-import ladder from "../../../assets/Images/ladder.jpg";
-import mindgym from "../../../assets/Images/mindgym.jpg";
-import mirror from "../../../assets/Images/mirror.jpg";
-import filldots from "../../../assets/Images/filldots.webp";
+import ladder from "../../../assets/Images/products/myladder-hero.webp";
+import mindgym from "../../../assets/Images/products/mind_gym_hero.webp";
+import mirror from "../../../assets/Images/products/mirror_me_hero.webp";
+import filldots from "../../../assets/Images/products/fill_dots_hero.webp";
 
 const PRODUCTS = [
     {

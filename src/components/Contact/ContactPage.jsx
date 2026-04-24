@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from '../Common/Navbar';
 import Contact from '../Education/Contact';
 import Footer from '../Common/Footer';
-import contactHero from '../../assets/Images/contact/contact-hero.png';
+import contactHero from '../../assets/Images/contact/contact-hero.webp';
 
 const ContactPage = () => {
     useEffect(() => {
